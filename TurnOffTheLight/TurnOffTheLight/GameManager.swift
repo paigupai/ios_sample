@@ -13,6 +13,12 @@ class GameManager:ObservableObject {
     
     @Published var lights = [[Light]]()
     @Published var isWin = false
+    @Published var timeString = "00:00"
+    //游戏计时器
+    private var timer:Timer?
+    //游戏持续时间
+    private var durations = 0
+    
     
     private var currenStatus: GameStatus = .during {
         didSet{
@@ -45,6 +51,18 @@ class GameManager:ObservableObject {
         self.size = size
         lights = Array(repeating: Array(repeating: Light(), count: size), count: size)
         start(lightSequence)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+            
+            self.durations += 1
+            let min = self.durations >= 60 ? self.durations/60 : 0
+            let seconds = self.durations - min*60
+            
+            let minString = min >= 0 ? "\(min)" : "0\(min)"
+            let secondString = self.durations - min*60 >= 10 ? "\(seconds)":"0\(seconds)"
+            self.timeString = minString + ":" + secondString
+        })
+        
     }
     func start(_ lightSequence:[Int] ) {
         currenStatus = .during
