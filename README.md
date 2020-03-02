@@ -5,6 +5,6 @@ swiftUI練習目的で書いた計算機、内部ロジックは[他の人](http
 TODO:縦だけじゃない、横も隙間を入れる。入力数字が右に寄せる。  
 ![gif](https://github.com/paigupai/swiftUI-sample/blob/master/gif/Calculator.gif)  
 ## TurnOffTheLight
-灯りを消すゲーム、swiftUI練習
-TODO:
+灯りを消すゲーム、swiftUI練習  
+TODO:  
 ![gif](https://github.com/paigupai/swiftUI-sample/blob/master/gif/TurnOffTheLight.gif)  
